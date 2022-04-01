@@ -7,10 +7,11 @@ import { PersonModel } from './person_model';
 })
 export class ManagerService {
   public persons: PersonModel[] = new Array<PersonModel>();
+  public shareAmount: number = 0;
 
   constructor() { 
     this.persons[0] = new PersonModel("Bill", 2);
-    this.persons[1] = new PersonModel("Bob", 4);
+    this.persons[1] = new PersonModel("Ted", 4);
   }
 
   public addPerson(name: string): void {
@@ -45,6 +46,17 @@ export class ManagerService {
       sum += p.amount;
     });
     return sum;
+  }
+
+
+  public calculateDifferences(): number[] {
+    this.shareAmount = this.sumValues() / this.persons.length;
+    let returnValues: number[] = new Array<number>();
+    this.persons.forEach((p, i) => {
+      p.difference = parseFloat((p.amount - this.shareAmount).toFixed(2));
+      returnValues[i] = p.difference;
+    });
+    return returnValues;
   }
 
 }

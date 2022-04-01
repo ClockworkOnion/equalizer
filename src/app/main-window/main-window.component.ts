@@ -16,10 +16,12 @@ export class MainWindowComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.manager.calculateDifferences();
   }
 
   onNewPersonClick() {
     this.manager.addPerson("New Person");
+    this.manager.calculateDifferences();
   }
 
   onSumUpClick() {

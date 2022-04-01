@@ -7,9 +7,12 @@
     <mat-label>Contribution</mat-label>
     <input matInput type="number" (change)="onAmountChanged()" [(ngModel)]="amount">
   </mat-form-field>
+  <br>
+  <!-- Name: {{name}}, Position: {{position+1}}, Difference from Sum: {{difference}} <br> -->
+  <div *ngIf="difference > 0; then getBlock else giveBlock"></div>
+    <ng-template #getBlock>{{name}} should receive {{getAbs(difference)}} [money]!</ng-template>
+    <ng-template #giveBlock>{{name}} should give {{getAbs(difference)}} [money]!</ng-template>
   <P>
-    <button class="button" (click)="onDeleteClicked()" mat-raised-button>Delete</button>
-    <button class="button" (click)="onAppendClicked()" mat-raised-button>Append</button>
+    <button class="button" (click)="onDeleteClicked()" mat-stroked-button>Delete</button>
   </P>
-  <p>Name: {{name}}, Position: {{position}}, Difference from Sum: </p>
 </div>

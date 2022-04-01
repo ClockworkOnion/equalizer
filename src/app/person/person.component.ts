@@ -11,6 +11,9 @@ export class PersonComponent implements OnInit {
   @Input() name = "defaultName";
   @Input() amount: number = 0
   @Input() position = 0;
+  @Input() difference = 0;
+  @Input() share = 0;
+  getAbs = Math.abs;
   manager: ManagerService;
 
   constructor(service: ManagerService) {
@@ -46,6 +49,7 @@ export class PersonComponent implements OnInit {
 
   public onAmountChanged():void {
     this.manager.changeContributionAmount(this.position, this.amount);
+    this.manager.calculateDifferences();
   }
 
 }

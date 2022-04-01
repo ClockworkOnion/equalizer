@@ -9,3 +9,11 @@
     outline-color: black;
     outline-style: dotted;
 }
+
+body {
+    background-color: aqua;
+}
+
+.button {
+    margin: 8px;
+}
