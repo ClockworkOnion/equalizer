@@ -1,0 +1,15 @@
+<div class="outer">
+  <mat-form-field appearance="fill">
+    <mat-label>Name</mat-label>
+    <input matInput (change)="onValueChanged()" [(ngModel)]="name">
+  </mat-form-field>
+  <mat-form-field class="rect" appearance="fill">
+    <mat-label>Contribution</mat-label>
+    <input matInput type="number" (change)="onAmountChanged()" [(ngModel)]="amount">
+  </mat-form-field>
+  <P>
+    <button class="button" (click)="onDeleteClicked()" mat-raised-button>Delete</button>
+    <button class="button" (click)="onAppendClicked()" mat-raised-button>Append</button>
+  </P>
+  <p>Name: {{name}}, Position: {{position}}, Difference from Sum: </p>
+</div>

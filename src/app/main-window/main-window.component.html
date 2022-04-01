@@ -1,0 +1,19 @@
+<div>
+    <H1>
+        The Equalizer
+    </H1>
+    <button mat-raised-button color="primary" (click)="onNewPersonClick()">Add Person</button>
+
+    <button mat-raised-button color="primary" (click)="onSumUpClick()">Sum up</button>
+
+    <p>
+        Sum of all contributions: {{this.manager.sumValues()}}
+    </p>
+
+    <table>
+        <tr *ngFor="let p of this.manager.persons; index as i">
+            <app-person [name]="p.name" [amount]="p.amount" [position]="i"></app-person>
+        </tr>
+    </table>
+
+</div>
